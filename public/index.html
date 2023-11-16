@@ -1,0 +1,178 @@
+<!-- public/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mount Everest Web App</title>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <style>
+    body {
+      background-image: url('images/mount-everest.jpg');
+      background-size: cover;
+      background-position: center top;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      min-height: 100vh;
+    }
+
+    .flag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+
+    .flag img {
+      width: 62.5px;
+      height: auto;
+    }
+
+    .search-bar {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    input[type="text"] {
+      padding: 5px;
+      margin-right: 5px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 5px 10px;
+      background-color: #001F3F;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    h1 {
+      max-width: 800px;
+      margin: 20px;
+      opacity: 0;
+      animation: fadeInDown 1s ease-in-out forwards;
+      color: #ffffff;
+      font-size: 50px;
+      font-weight: bold;
+    }
+
+    p {
+      max-width: 800px;
+      margin: 20px;
+      opacity: 0;
+      animation: fadeInDown 1s ease-in-out forwards;
+      color: #ffffff;
+      font-size: 18px;
+    }
+
+    .content-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    footer {
+      width: 100%;
+      background-color: #001F3F;
+      border-top: 2px solid white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      box-sizing: border-box;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+    }
+
+    footer p {
+      margin: 0;
+      color: white;
+    }
+
+    .social-icons {
+      display: flex;
+      align-items: center;
+      margin-left: 10px; /* Add margin to separate icons from text */
+    }
+
+    .social-icons a {
+      margin-right: 10px;
+      color: white;
+    }
+
+    /* Define a keyframes animation named fadeInDown */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-100%);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Flag of Nepal -->
+  <div class="flag">
+    <img src="images/flag-of-nepal.gif" alt="Flag of Nepal">
+  </div>
+
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <input type="text" placeholder="Search">
+    <button>Search</button>
+  </div>
+
+  <!-- Content Wrapper -->
+  <div class="content-wrapper">
+    <!-- Content -->
+    <h1>Welcome to the Mount Everest Web App</h1>
+    <p>Mount Everest, the world's highest peak, stands proudly in the Himalayas. Majestic and awe-inspiring, it is a symbol of Nepal's natural beauty and rich cultural heritage. Explore the land where Everest resides and discover the wonders of Nepal.</p>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; Sabin Lama | Email: <a href="mailto:laamasabin97@gmail.com" style="color: white;">laamasabin97@gmail.com | </a></p>
+
+    <div class="social-icons">
+      <!-- LinkedIn Icon with Link -->
+      <a href="https://www.linkedin.com/in/er-sabin-lama/" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-linkedin fa-lg"></i>
+      </a>
+
+      <!-- GitHub Icon with Link -->
+      <a href="https://github.com/sabin2018" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-github fa-lg"></i>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Script to add the 'show' class after a delay (adjust as needed) -->
+  <script>
+    setTimeout(function() {
+      document.querySelectorAll('.show').forEach(function(element) {
+        element.classList.add('show');
+      });
+    }, 500); // Adjust the delay (in milliseconds) as needed
+  </script>
+</body>
+</html>
