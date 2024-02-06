@@ -17,7 +17,12 @@
 #           slack_webhook_url: ${{ secrets.SLACK }}
 
 name: slack_github_action
-on: [push]
+on: 
+  release:
+    types:
+      - created
+      - push
+      - pull_request
 jobs:
   slack_notifier:
     runs-on: ubuntu-latest
