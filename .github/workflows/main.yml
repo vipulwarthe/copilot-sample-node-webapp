@@ -1,17 +1,33 @@
-name: Notify Slack on Release
+# name: Notify Slack on Release
 
-on:
-  release:
-    types:
-      - created
-      - push
+# on:
+#   release:
+#     types:
+#       - created
+#       - push
 
+# jobs:
+#   notify_slack:
+#     runs-on: ubuntu-latest
+#     name: Notify Slack on Release
+#     steps:
+#       - name: Notify Slack on Release
+#         uses: instantish/notify-slack-on-release@1.0.0
+#         with:
+#           slack_webhook_url: ${{ secrets.SLACK }}
+
+name: slack_github_action
+on: [push]
 jobs:
-  notify_slack:
+  slack_notifier:
     runs-on: ubuntu-latest
-    name: Notify Slack on Release
     steps:
-      - name: Notify Slack on Release
-        uses: instantish/notify-slack-on-release@1.0.0
+      - name: Send notification on Slack using Webhooks
+        uses: slackapi/slack-github-action@v1.24.0
         with:
-          slack_webhook_url: ${{ secrets.SLACK }}
+          payload: |
+            {
+            "text": "Git push done in the repo , demogithubactionyttest"
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK }}
