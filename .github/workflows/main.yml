@@ -49,9 +49,14 @@ jobs:
 
     steps:
       - name: Notify Slack
-        uses: rtCamp/action-slack-notify@v2
+        uses: slackapi/slack-github-action@v1.24.0
         with:
-          slack_webhook: ${{ secrets.SLACK }}
+          payload: |
+            {
+            "test": "PR is created"
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK }}
           channel: 'github'
           username: 'GitHub Actions'
           icon_emoji: ':rocket:'
