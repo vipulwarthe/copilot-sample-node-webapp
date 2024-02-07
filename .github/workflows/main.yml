@@ -16,23 +16,44 @@
 #         with:
 #           slack_webhook_url: ${{ secrets.SLACK }}
 
-name: slack_github_action
-on: 
-  release:
-    types:
-      - created
-      - push
-      - pull_request
+# name: slack_github_action
+# on: 
+#   release:
+#     types:
+#       - created
+#       - push
+#       - pull_request
+# jobs:
+#   slack_notifier:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Send notification on Slack using Webhooks
+#         uses: slackapi/slack-github-action@v1.24.0
+#         with:
+#           payload: |
+#             {
+#             "text": "Git push done in the repo , and PR is created"
+#             }
+#         env:
+#           SLACK_WEBHOOK_URL: ${{ secrets.SLACK }}
+
+name: Slack Notifications for Pull Requests
+
+on:
+  pull_request:
+    types: [opened]
+
 jobs:
-  slack_notifier:
+  notify_slack:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Send notification on Slack using Webhooks
-        uses: slackapi/slack-github-action@v1.24.0
+      - name: Notify Slack
+        uses: rtCamp/action-slack-notify@v2
         with:
-          payload: |
-            {
-            "text": "Git push done in the repo , and PR is created"
-            }
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK }}
+          slack_webhook: ${{ secrets.SLACK }}
+          channel: 'github'
+          username: 'GitHub Actions'
+          icon_emoji: ':rocket:'
+          text: 'New pull request created: ${{ github.event.pull_request.html_url }}'
+
