@@ -53,7 +53,7 @@ jobs:
         with:
           payload: |
             {
-            "test": "PR is created"
+            "text": "PR is created"
             }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK }}
