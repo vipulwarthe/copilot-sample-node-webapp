@@ -35,7 +35,7 @@
 #             "text": "Git push done in the repo , and PR is created"
 #             }
 #         env:
-#           SLACK_WEBHOOK_URL: ${{ secrets.SLACK }}
+##           SLACK_WEBHOOK_URL: ${{ secrets.SLACK }}
 
 name: Slack Notifications for Pull Requests
 
