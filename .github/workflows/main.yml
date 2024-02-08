@@ -50,11 +50,11 @@ jobs:
     steps:
       - name: Notify Slack
         uses: slackapi/slack-github-action@v1.24.0
-        # with:
-          # payload: |
-          #   {
-          #   "text": "PR is created"
-          #   }
+        with:
+          payload: |
+            {
+            "text": "PR is created"
+            }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK }}
           channel: 'github'
