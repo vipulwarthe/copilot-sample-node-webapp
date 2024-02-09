@@ -112,7 +112,7 @@ jobs:
       - uses: hkusu/slack-integration@v1
         with:
           slack-token: ${{ secrets.SLACK }}
-          channel: 'my-report-channel'
+          channel: 'github'
           subscribe-pulls: true
           subscribe-issues: true
           subscribe-reviews: true
